@@ -33,6 +33,19 @@ public class CropControl {
         if(acresToSell > owned) {
             return -1;
         }
+        
+        //acresOwned = acresOwned - acresToSell
+        owned -= acresToSell;
+        cropData.setAcresOwned(owned);
+        
+        //wheatInStore = wheatInStore + (acresToBuy * landPrice)
+        int wheat = cropData.getWheatInStore();
+        wheat -= (acresToSell * landPrice);
+        cropData.setWheatInStore(wheat);
+        
+        //return acresOwned
+        return owned;
+        
     }
     
 }    

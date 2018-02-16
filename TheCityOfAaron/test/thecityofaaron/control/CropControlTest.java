@@ -9,6 +9,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import thecityofaaron.model.CropData;
 
+
 /**
  *
  * @author Familia Galindo
@@ -23,7 +24,6 @@ public class CropControlTest {
      */
     @Test
     public void testSellLand() {
-        
         
         System.out.println("sellLand");
         CropData theCrops = new CropData();

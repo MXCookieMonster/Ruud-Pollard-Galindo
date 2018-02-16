@@ -23,8 +23,7 @@ public class CropControlTest {
      */
     @Test
     public void testSellLand() {
-        
-        
+         
         System.out.println("sellLand");
         CropData theCrops = new CropData();
         theCrops.setWheatInStore(1000);
@@ -35,6 +34,18 @@ public class CropControlTest {
         int result = CropControl.sellLand(landCost, toSell, theCrops);
         assertEquals(expResult, result);
 
+    }
+
+    /**
+     * Test of setOffering method, of class CropControl.
+     */
+    @Test
+    public void testSetOffering() {
+        System.out.println("setOffering");
+        int offering = 10;
+        int expResult = 10;
+        int result = CropControl.setOffering(offering);
+        assertEquals(expResult, result);
     }
     
 }

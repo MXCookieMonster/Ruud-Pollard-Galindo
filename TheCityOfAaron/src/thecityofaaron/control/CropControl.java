@@ -48,5 +48,27 @@ public class CropControl {
         
     }
     
+    public static int setOffering(int offering) {
+        // The setOffering method
+        // Purpose: indicate what percentage of the harvest is to be paid as an offering
+        // Parameters: percentage indicated by user input
+        // Returns: the percentage indicated by user input
+        // Pre-conditions: the percentage must be greater than or equal to 0
+        // and must be less than or equal to 100
+        
+        //If offering < 0, return -1
+        if (offering < 0) {
+            return -1;
+        }
+        //If offering > 100, return -1
+        else if (offering > 100) {
+            return -1;
+        }
+        //Return offering
+        else {
+            return offering;
+        }
+    }
+    
 }    
 

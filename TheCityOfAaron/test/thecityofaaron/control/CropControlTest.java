@@ -55,6 +55,7 @@ public class CropControlTest {
     }
     /**
      * Test of setOffering method, of class CropControl.
+     * @author Joe G
      */
     @Test
     public void testPlantCrop() {

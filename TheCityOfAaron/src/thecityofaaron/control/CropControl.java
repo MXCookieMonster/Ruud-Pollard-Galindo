@@ -86,7 +86,10 @@ public class CropControl {
             return offering;
         }
     }
-    
+    /**
+    *
+    * @author Joe G
+    */
     public static int plantCrop(int acresToPlant, CropData cropData) {
         
         //The plant the crop method

@@ -87,5 +87,42 @@ public class CropControl {
         }
     }
     
+    public static int plantCrop(int acresToPlant, CropData cropData) {
+        
+        //The plant the crop method
+        //Purpose: Plant the crop for next year
+        //Parameters: number of acres owned, amount of wheat in store, cost to plant
+        //Pre-conditions: The acres planted must be positive, The numbers of acres 
+        //owned must be more than the number of acres planted, the cost of bushels to plant must be 
+        //less than the bushels of wheat in store.
+        //Returns: wheat in store after planting crop
+
+        
+        
+        //bushelsToPlant = acresToPlant / 2
+        int bushels = acresToPlant /2;
+        //If acresToPlant < 0, return -1
+        if(acresToPlant < 0)
+            return -1;
+        //if acresOwned < acresToPlant, return -1
+        int owned = cropData.getAcresOwned();
+         if(owned < acresToPlant)
+            return -1;
+        
+        //if  wheatInStore < bushelsToPlant, return -1
+        //bushelsToPlant = acresToPlant / 2
+
+        int wheat = cropData.getWheatInStore();
+                
+        if(wheat < bushels)
+            return -1;
+                   
+        //wheatInStore = wheatinStore - bushelsToPlant       
+        wheat-= bushels;
+        
+        
+        //return wheat after bushels spent
+        return wheat;
+    }     
 }    
 

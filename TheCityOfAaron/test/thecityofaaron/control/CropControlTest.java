@@ -46,12 +46,35 @@ public class CropControlTest {
     @Test
     public void testSetOffering() {
         // Test Case 1
-        System.out.println("setOffering Test1");
+        System.out.println("setOffering Test Valid");
         int offering = 10;
         int expResult = 10;
         int result = CropControl.setOffering(offering);
         assertEquals(expResult, result);
         
+        System.out.println("setOffering Test Invalid");
+        offering = -10;
+        expResult = -1;
+        result = CropControl.setOffering(offering);
+        assertEquals(expResult, result);
+        
+        System.out.println("setOffering Test Invalid");
+        offering = 200;
+        expResult = -1;
+        result = CropControl.setOffering(offering);
+        assertEquals(expResult, result);
+        
+        System.out.println("setOffering Test Boundary");
+        offering = 0;
+        expResult = 0;
+        result = CropControl.setOffering(offering);
+        assertEquals(expResult, result);
+        
+        System.out.println("setOffering Test Boundary");
+        offering = 100;
+        expResult = 100;
+        result = CropControl.setOffering(offering);
+        assertEquals(expResult, result);
     }
     /**
      * Test of setOffering method, of class CropControl.

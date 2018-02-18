@@ -40,6 +40,7 @@ public class CropControlTest {
 
     /**
      * Test of setOffering method, of class CropControl.
+     * Roger Pollard
      */
     
     

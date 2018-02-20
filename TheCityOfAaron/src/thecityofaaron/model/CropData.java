@@ -29,7 +29,7 @@ public class CropData implements Serializable{
     private int acresPlanted = 2;
     private int numStarved = 50;
     private int eatenByRats = 2;
-    private int wheatForPeople = 25;
+    public int wheatForPeople = 25;
 
      
     

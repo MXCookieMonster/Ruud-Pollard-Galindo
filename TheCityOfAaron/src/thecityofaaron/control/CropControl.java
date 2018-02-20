@@ -86,6 +86,32 @@ public class CropControl {
             return offering;
         }
     }
+    
+    public static int feedPeople(int currentPopulation, int wheatForPeople, int wheatInStore){
+        //This method feeds the people
+        //Purpose: To feed the people for the current year
+        //Parameters: Current Population, wheat in store
+        //Returns: People fed
+        //Pre-Conditions: The number bushels entered must be positive, number of bushels set aside can't be more
+        //than wheat in store. 
+        
+        //If wheatForPeople < 0, return -1
+        if (wheatForPeople < 0) {
+            return -1;
+        }
+        
+        //If wheatForPeople > wheatInStore, return -1
+        if (wheatForPeople > wheatInStore) {
+            return -1;
+        }
+        
+        //Getting the number of people survived
+        currentPopulation = wheatForPeople / 20;
+        
+        //Returns the Population
+        return currentPopulation;
+    }
+    
     /**
     *
     * @author Joe G
@@ -129,3 +155,6 @@ public class CropControl {
     }     
 }    
 
+
+   
+    

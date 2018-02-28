@@ -18,7 +18,7 @@ public class Game implements Serializable {
     private double totalTime;
     private int noPeople;
     private Player player;
-    
+    private CropData theCrops = null;
     //Constructor variable
     public Game() {
     }
@@ -49,7 +49,23 @@ public class Game implements Serializable {
     public void setNoPeople(int noPeople) {
         this.noPeople = noPeople;
     }
+    // the getCrops() method
+    // Purpose: get a reference to the crop object
+    // Parameters: none
+    // Returns: a reference to a crop object
+    public CropData getCropData()
+    {
+        return theCrops;
+    }
     
+    // the setCrops() method
+    // Purpose: store a reference to a crop object
+    // Parameters: a reference to a crop object
+    // Returns: none    
+    public void setCropData(CropData _cropRef)
+    {
+        theCrops = _cropRef;
+    }
     //Hashcode
 
     @Override

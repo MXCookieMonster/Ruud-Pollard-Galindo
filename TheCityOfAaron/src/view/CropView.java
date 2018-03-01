@@ -8,6 +8,7 @@ import thecityofaaron.model.*;
 import thecityofaaron.control.*;
 import java.util.Scanner;
 import thecityofaaron.MainClass;
+import thecityofaaron.model.CropData;
 
 
 
@@ -57,5 +58,21 @@ public static void runCropsView(){
     // as they are written
 }
 
+public static void sellLandView(CropData cropData) {
+        
+        //cost of land for the round
+        int price = CropControl.calcLandCost();
+        
+        //enter number of acres user wantes to sell
+        System.out.format("Land is selling for %d bushels per acre.%n",price);
+        System.out.print("\nHow many acres of land do you wish to sell? "); 
+        
+        //Users input
+        int toSell;
+        toSell = keyboard.nextInt();
+        
+        //Call sellLand method 
+        CropControl.sellLand(toSell, price, cropData);
+    }
 
 }

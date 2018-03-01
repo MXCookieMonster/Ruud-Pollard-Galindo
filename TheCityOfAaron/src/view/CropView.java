@@ -54,7 +54,7 @@ public static void runCropsView(){
 
     // call the buyLandView( ) method
     //buyLandView( );
-
+    
     // add calls to the other crop view methods
     // as they are written
 }
@@ -106,5 +106,19 @@ public static void sellLandView(CropData cropData) {
         }
         
     }
-
+ /**
+ *
+ * @author Joe G
+ */
+    public static void plantCrop(int acresToPlant, CropData cropData){
+    
+    //enter number acres user wants to plant
+     System.out.format("To plant crop it costs %d bushels per acre.%n");
+     System.out.print("\nHow many acres do you wish to plant? ");
+     //user input
+     int toPlant;
+     toPlant = keyboard.nextInt();
+     // call the PlantCrop method
+     CropControl.plantCrop(toPlant, cropData);
+    }
 }

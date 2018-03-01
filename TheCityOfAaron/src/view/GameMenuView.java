@@ -10,6 +10,7 @@ import thecityofaaron.MainClass;
 import thecityofaaron.model.Player;
 import thecityofaaron.model.Game;
 import view.MainMenuView;
+import view.PrintListView;
 
 /**
  *
@@ -75,7 +76,7 @@ public class GameMenuView {
                 viewMap();
                 break;
             case 2:
-                viewList();
+                //Display Print List View();
                 break;
             case 3:
                 moveToNewLocation();

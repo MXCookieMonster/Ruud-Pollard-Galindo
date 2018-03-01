@@ -22,7 +22,7 @@ public class GameMenuView {
     private String gameMenu;
     private int max;
     
-    public void gameMenuView() {
+    public GameMenuView() {
         gameMenu = "\n 1 - View the map\n" +
                 " 2 - View/Print a list\n" +
                 " 3 - Move to a new location\n" +
@@ -33,6 +33,7 @@ public class GameMenuView {
     }
     
     public void displayGameMenuView() {
+        
         int menuOption;
         do {
         // Display the menu

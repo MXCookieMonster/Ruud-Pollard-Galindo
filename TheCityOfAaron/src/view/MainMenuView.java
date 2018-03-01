@@ -154,6 +154,7 @@ public class MainMenuView {
         System.out.println("\nWelcome, " + name + ". Have fun.");
 
         // Display the Game menu.
+        displayGameMenuView();
     }
     
     public void startSavedGame() {
@@ -161,7 +162,13 @@ public class MainMenuView {
     }
     
     public void displayHelpMenuView() {
-        
+        HelpMenu hmv = new HelpMenu();
+        hmv.displayMenuView();
+    }
+    
+    public void displayGameMenuView() {
+        GameMenuView gmv = new GameMenuView();
+        gmv.displayGameMenuView();
     }
     
     public void displaySaveGameView() {

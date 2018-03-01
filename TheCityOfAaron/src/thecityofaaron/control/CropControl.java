@@ -87,7 +87,7 @@ public class CropControl {
         }
     }
     
-    public static int feedPeople(int currentPopulation, int wheatForPeople, int wheatInStore){
+    public static int feedPeople(int wheatForPeople){
         //This method feeds the people
         //Purpose: To feed the people for the current year
         //Parameters: Current Population, wheat in store
@@ -100,16 +100,20 @@ public class CropControl {
             return -1;
         }
         
-        //If wheatForPeople > wheatInStore, return -1
-        if (wheatForPeople > wheatInStore) {
-            return -1;
-        }
-        
-        //Getting the number of people survived
-        currentPopulation = wheatForPeople / 20;
-        
         //Returns the Population
-        return currentPopulation;
+        return wheatForPeople;
+    }
+    
+    public static int calcStarved(int wheatForPeople) {
+        int currentPopulation = 100; //PLACEHOLDER
+        int peopleFed = wheatForPeople/20;
+        if (peopleFed >= currentPopulation) {
+            return currentPopulation;
+        } else {
+            int peopleStarved = currentPopulation - peopleFed;
+            currentPopulation -= peopleStarved;
+            return currentPopulation;
+        }
     }
     
     /**

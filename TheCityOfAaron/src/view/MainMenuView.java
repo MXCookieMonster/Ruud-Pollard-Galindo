@@ -10,6 +10,7 @@ import thecityofaaron.MainClass;
 import thecityofaaron.model.CropData;
 import thecityofaaron.model.Player;
 import thecityofaaron.model.Game;
+import view.HelpMenu;
 
 
 /**
@@ -159,7 +160,7 @@ public class MainMenuView {
     }
     
     public void displayHelpMenuView() {
-        System.out.println("\nDisplay help menu option selected.");
+       
     }
     
     public void displaySaveGameView() {

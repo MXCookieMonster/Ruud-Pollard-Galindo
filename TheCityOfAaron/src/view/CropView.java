@@ -75,4 +75,35 @@ public static void sellLandView(CropData cropData) {
         CropControl.sellLand(toSell, price, cropData);
     }
 
+    public static void feedPeopleView() {
+        
+        // Ask user "How many bushels...?"
+        System.out.println("How many bushes of grain do you want to give to the people?\n");
+        
+        // User enters value
+        int bushelCount = keyboard.nextInt();
+        
+        // Check value
+        // Make sure the city has this much wheat in storage.
+        int wheatInStore = theGame.getCropData().getWheatInStore();
+        int error = 0;
+        do {
+            if(bushelCount == -1) {
+               error = 1;
+               System.out.println("Please enter a positive integer.");
+            } else if (bushelCount > wheatInStore) {
+                System.out.println("You do not have enough wheat in store.");
+            }
+        } while (error == 1);
+        
+        if (error == 0) {
+        
+            // Subtract this amount from the wheat in storage. Display remaining wheat
+            wheatInStore -= bushelCount;
+        
+            // Update the game state to save how many bushels of wheat you have set aside to feed the people
+        }
+        
+    }
+
 }

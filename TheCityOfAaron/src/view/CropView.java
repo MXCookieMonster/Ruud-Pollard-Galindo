@@ -6,6 +6,7 @@
 package view;
 import thecityofaaron.model.*;
 import thecityofaaron.control.*;
+import thecityofaaron.model.CropData;
 import java.util.Scanner;
 import thecityofaaron.MainClass;
 import thecityofaaron.model.CropData;

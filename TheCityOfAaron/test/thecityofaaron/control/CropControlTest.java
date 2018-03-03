@@ -35,6 +35,7 @@ public class CropControlTest {
         int expResult = 2790;
         int result = CropControl.sellLand(landCost, toSell, theCrops);
         assertEquals(expResult, result);
+        
 
     }
 
@@ -127,4 +128,67 @@ public class CropControlTest {
      result  = CropControl.plantCrop(ToPlant, theCrops);
      assertEquals(expResult,result);
     }
+    
+    /**
+     * Testing the feedPeople Method
+     * Tyden Ruud
+     */
+    //Test Case 1
+    //Valid
+    public void testFeedPeople(){
+    System.out.println("feedPeople Test 1");
+     CropData theCrops = new CropData();
+     theCrops.setWheatInStore(1000);
+     theCrops.setPopulation(100);
+     int currentPopulation = 100;
+     int wheatForPeople = 500;
+     int wheatInStore = 2000;
+     int expResult = 50;
+     int result = CropControl.feedPeople(currentPopulation, wheatForPeople, wheatInStore);
+     assertEquals(expResult, result);    
+    
+    //Invalid
+     System.out.println("feedPeople Test 2");
+     theCrops.setWheatInStore(1000);
+     theCrops.setPopulation(200);
+     wheatForPeople = 3000;
+     expResult = -1;
+     result = CropControl.feedPeople(currentPopulation, wheatForPeople, wheatInStore);
+     assertEquals(expResult,result);
+    
+     //Invalid
+     System.out.println("feedPeople Test 3");
+     theCrops.setWheatInStore(1000);
+     theCrops.setPopulation(200);
+     wheatForPeople = -200;
+     expResult = -1;
+     result = CropControl.feedPeople(currentPopulation, wheatForPeople, wheatInStore);
+     assertEquals(expResult,result);
+     
+      //Boundary
+     System.out.println("feedPeople Test 4");
+     theCrops.setWheatInStore(1000);
+     theCrops.setPopulation(200);
+     wheatForPeople = 0;
+     expResult = 0;
+     result = CropControl.feedPeople(currentPopulation, wheatForPeople, wheatInStore);
+     assertEquals(expResult,result);
+     
+      //Boundary
+     System.out.println("feedPeople Test 5");
+     theCrops.setWheatInStore(1000);
+     theCrops.setPopulation(200);
+     wheatForPeople = 1000;
+     expResult = 200;
+     result = CropControl.feedPeople(currentPopulation, wheatForPeople, wheatInStore);
+     assertEquals(expResult,result);
+    
+    }
+    
+    
+    
+  
+    
+    
+    
 }

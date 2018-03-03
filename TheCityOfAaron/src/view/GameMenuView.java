@@ -82,7 +82,7 @@ public class GameMenuView {
                 manageCrops();
                 break;
             case 5:
-                displayMenuView();
+                //displayMenuView();
                 break;
         }
     }

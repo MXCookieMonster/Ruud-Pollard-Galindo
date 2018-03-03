@@ -15,7 +15,7 @@ public class CropData implements Serializable{
     // instances have place holders for testing purpose
     
     private int year = 1;
-    private int population = 2000;
+    public int population = 2000;
     private int acresOwned = 1;
     private int cropYield = 2;
     private int wheatInStore = 50;

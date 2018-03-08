@@ -21,7 +21,7 @@ public class GameMenuView extends MenuView {
     private String gameMenu;
     private int max;
     
-    public void gameMenuView() {
+    public gameMenuView() {
         super ("\n 1 - View the map\n" +
                 " 2 - View/Print a list\n" +
                 " 3 - Move to a new location\n" +

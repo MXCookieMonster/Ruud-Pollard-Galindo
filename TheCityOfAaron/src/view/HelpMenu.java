@@ -11,7 +11,7 @@ import view.MainMenuView;
  *
  * @author Tyden R
  */
-public class HelpMenu {
+public class HelpMenu extends MenuView {
     
     Scanner keyboard = new Scanner(System.in);
     
@@ -19,7 +19,7 @@ public class HelpMenu {
     private int max;
     
     public HelpMenu() {
-        helpMenu = "\n" +
+           super ("\n" +
                    "************************\n" +
                    "CITY OF AARON: HELP MENU\n" +
                    "************************\n" +
@@ -28,46 +28,9 @@ public class HelpMenu {
                    " 3 - How to view the Map \n" +
                    " 4 - How to move locations \n" +
                    " 5 - How to display list of animals, tools, and provisions in Storehouse \n" +
-                   " 6 - Back to Main Menu"; 
-        max = 6;
+                   " 6 - Back to Main Menu",
+                   6);
     }
-    
-       public void displayMenuView() {
-        int menuOption;
-        do {
-        // Display the menu
-        System.out.println(helpMenu);
-        
-        // Prompt the user and get user's input
-        menuOption = getMenuOption();
-        
-        // Perform the desired action
-        doAction(menuOption);
-        
-        // Determine and display the next view
-        } while (menuOption != max);
-    }
-    
-    
-       public int getMenuOption() {
-            // declare a variable to hold user's input
-            int userInput;
-        
-             // begin loop
-             do {
-            // get user input from the keyboard
-             userInput = keyboard.nextInt();
-            
-            // if it is not a valid value, output an error message
-             if (userInput < 1 || userInput > max) {
-            System.out.println("\noption must be between 1 and " + max);
-            }
-            // loop back to the top if input was not valid
-            } while (userInput < 1 || userInput > max);
-        
-            //return the value input by the user
-            return userInput;
-        }
     
     public void doAction(int option) {
         switch(option) {

@@ -21,7 +21,7 @@ public class MainMenuView extends MenuView {
     
     Scanner keyboard = new Scanner(System.in);
     
-    private String mainMenu;
+    private String menu;
     private int max;
     
     public MainMenuView() {

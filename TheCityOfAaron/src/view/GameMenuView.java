@@ -14,15 +14,20 @@ import thecityofaaron.model.Game;
  *
  * @author rogerpollard
  */
-public class GameMenuView extends MenuView {
+public class GameMenuView extends MenuView 
+{
     
     Scanner keyboard = new Scanner(System.in);
     
-    private String gameMenu;
+    private String menu;
     private int max;
     
-    public gameMenuView() {
-        super ("\n 1 - View the map\n" +
+    public GameMenuView() {
+        super ("\n " +
+                "*******************************\n" +
+                "CITY OF AARON: GAME MENU *\n" +
+                "*******************************\n" +
+                "1 - View the map\n" +
                 " 2 - View/Print a list\n" +
                 " 3 - Move to a new location\n" +
                 " 4 - Manage the crops\n" +

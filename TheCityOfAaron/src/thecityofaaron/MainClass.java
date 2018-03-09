@@ -35,7 +35,7 @@ public class MainClass {
     public static void main(String[] args) {
         
         MainMenuView mmv = new MainMenuView();
-        mmv.displayMenuView();
+        mmv.displayMenu();
         
     }
     

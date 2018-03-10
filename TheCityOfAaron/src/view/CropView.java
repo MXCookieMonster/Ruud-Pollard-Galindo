@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view;
+import java.util.Locale;
 import thecityofaaron.model.*;
 import thecityofaaron.control.*;
 import java.util.Scanner;
@@ -40,25 +41,13 @@ public static void buyLandView()
      // Get the cost of land for this round.
      int cost = CropControl.calcLandCost();
      // Prompt the user to enter the number of acres to buy
-     System.out.format("Land is selling for %d bushels per acre %n", cost);   
+     System.out.format("Land is selling for %d bushels per acre.%n", cost);   
      System.out.print("\nHow many acres of land do you wish to buy?");
     //  Get the user’s input and save it.
     int toBuy;
     toBuy = keyboard.nextInt();
     // Call the buyLand( ) method in the control layer to buy the land
     CropControl.buyLand(theCropData, toBuy,cost);
-}
-// The runCropsView method()
-// Purpose: runs the Hamurabi game
-// Parameters: none
-// Returns: none
-public static void runCropsView(){
-
-    // call the buyLandView( ) method
-    //buyLandView( );
-
-    // add calls to the other crop view methods
-    // as they are written
 }
 
 public static void sellLandView() {
@@ -143,6 +132,38 @@ public static void sellLandView() {
         plantCropView();
 
     }
-
+public static void displayCropReport()
+{
+    
+//The year number
+    int year = theCropData.getYear();
+    System.out.format("The year is %d.%n",year);
+//How many people starved
+    int starved = theCropData.getNumStarved();
+    System.out.format("The number of people who starved is %d.%n", starved);    
+//How many people came to the city
+    int people = theCropData.getNewPeople();
+    System.out.format("The number of new people that came to the city is %d.%n",people);
+//The current population
+    int population = theCropData.getPopulation();
+    System.out.format("The current population is %d.%n",population);
+//The number of acres of crop land owned by the city
+    int owned = theCropData.getAcresOwned();
+    System.out.format("The numbers of acres of crop land owned by the city is %d.%n",owned);
+//The number of bushels per acre in this years harvest
+    int harvest =theCropData.getHarvest();
+    System.out.format("The number of bushels per acre in the years harvest is %d.%n",harvest);
+//The number of nushels of wheat paid in offerings
+    int offering = theCropData.getOfferingBushels();
+    System.out.format("The number of bushels of what paid in offerings are %d,%n",offering);
+ //The number of bushels of wheat eaten by rats
+    int rats = theCropData.getEatenByRats();
+    System.out.format("The number of bushels of wheat eaten by the rats is %d,%n",rats);
+//The number of bushels of wheat in store
+    int wheat = theCropData.getWheatInStore();
+    System.out.format("The number of bushels of what in store are %d.%n",wheat);
+   
+    
+}
     
 }

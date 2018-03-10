@@ -206,7 +206,29 @@ public class CropControl {
     static int setOffering(int offering) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    private static int MAX_PEOPLE = 7;
+    private static int MIN_PEOPLE = 1;
+    
+    public int newPeople() {
+        Random numToCity = new Random();
+        int peopleToCity = numToCity.nextInt(MAX_PEOPLE / 100);
+        return peopleToCity;
+    }
+
+    public int newYear() {
+    int year = 1;
+    while(year <= 10) {
+        year++;
+    }
+    return year;
+    }
+    
+    
+
+
 }    
+
 
 
    

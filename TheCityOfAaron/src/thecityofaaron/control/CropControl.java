@@ -110,7 +110,7 @@ public class CropControl {
         
     }
     
-    public static int setOffering(int offering) {
+    public static int setOffering(int offering, CropData cropData) {
         // The setOffering method
         // Purpose: indicate what percentage of the harvest is to be paid as an offering
         // Parameters: percentage indicated by user input
@@ -132,7 +132,7 @@ public class CropControl {
         }
     }
     
-    public static int feedPeople(int currentPopulation, int wheatForPeople, int wheatInStore){
+    public static int feedPeople(int wheatForPeople, CropData cropData){
         //This method feeds the people
         //Purpose: To feed the people for the current year
         //Parameters: Current Population, wheat in store
@@ -146,15 +146,19 @@ public class CropControl {
         }
         
         //If wheatForPeople > wheatInStore, return -1
-        if (wheatForPeople > wheatInStore) {
+        if (wheatForPeople > cropData.wheatForPeople) {
             return -1;
         }
         
+        int wheatInStore = cropData.getWheatInStore();
+        
+        cropData.setWheatForPeople(wheatInStore - wheatForPeople);
+        
         //Getting the number of people survived
-        currentPopulation = wheatForPeople / 20;
+        cropData.population = wheatForPeople / 20;
         
         //Returns the Population
-        return currentPopulation;
+        return cropData.getWheatForPeople();
     }
     
     /**
@@ -193,7 +197,7 @@ public class CropControl {
                    
         //wheatInStore = wheatinStore - bushelsToPlant       
         wheat-= bushels;
-        cropData.setWheatInStore(wheat);
+        
         
         //return wheat after bushels spent
         return wheat;

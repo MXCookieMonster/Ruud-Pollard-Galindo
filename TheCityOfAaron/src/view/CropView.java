@@ -72,28 +72,18 @@ public static void sellLandView() {
         System.out.println("How many bushes of grain do you want to give to the people?\n");
         
         // User enters value
-        int bushelCount = keyboard.nextInt();
-        
-        // Check value
-        // Make sure the city has this much wheat in storage.
-        int wheatInStore = theGame.getCropData().getWheatInStore();
-        int error = 0;
+        int wheatInStore = theCropData.getWheatInStore();
+        int bushelCount;
+        int remainingWheat;
         do {
-            if(bushelCount == -1) {
-               error = 1;
-               System.out.println("Please enter a positive integer.");
-            } else if (bushelCount > wheatInStore) {
-                System.out.println("You do not have enough wheat in store.");
+            bushelCount = keyboard.nextInt();
+            remainingWheat = CropControl.feedPeople(wheatInStore, theCropData);
+            if (remainingWheat == -1) {
+                System.out.format("Please enter a positive integer less than %d", wheatInStore);
             }
-        } while (error == 1);
+        } while (remainingWheat == -1);
         
-        if (error == 0) {
-        
-            // Subtract this amount from the wheat in storage. Display remaining wheat
-            wheatInStore -= bushelCount;
-        
-            // Update the game state to save how many bushels of wheat you have set aside to feed the people
-        }
+        System.out.format("There are %d bushels of wheat in store.", remainingWheat);
         
     }
  /**
@@ -165,5 +155,22 @@ public static void displayCropReport()
    
     
 }
+
+    public static void payOfferingsView() {
+        System.out.print("What percentage of your harvest do you want to pay in tithes and offerings.");
+        
+        int offerings;
+        
+        do {
+            offerings = keyboard.nextInt();
+            offerings = CropControl.setOffering(offerings, theCropData);
+            if (offerings == 1) {
+                System.out.print("Please enter an integer between 0 and 100");
+            }
+        } while(offerings == -1);
+        
+        theCropData.setOffering(offerings);
+       
+    }
     
 }

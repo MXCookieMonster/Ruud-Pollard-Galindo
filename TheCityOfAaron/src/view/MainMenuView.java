@@ -116,6 +116,9 @@ public class MainMenuView extends MenuView {
         System.out.println("\nWelcome, " + name + ". Have fun.");
 
         // Display the Game menu.
+        displayGameMenuView();
+        
+    
     }
     
     public void startSavedGame() {
@@ -123,11 +126,17 @@ public class MainMenuView extends MenuView {
     }
     
     public void displayHelpMenuView() {
-       
+      HelpMenu hm = new HelpMenu();
+      hm.displayMenu();
     }
     
     public void displaySaveGameView() {
         System.out.println("\nSave game option selected.");
+    }
+
+    private void displayGameMenuView() {
+        GameMenuView gmv = new GameMenuView();
+        gmv.displayMenu();
     }
    
     

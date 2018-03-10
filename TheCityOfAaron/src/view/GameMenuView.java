@@ -27,7 +27,7 @@ public class GameMenuView extends MenuView
                 "*******************************\n" +
                 "CITY OF AARON: GAME MENU *\n" +
                 "*******************************\n" +
-                "1 - View the map\n" +
+                " 1 - View the map\n" +
                 " 2 - View/Print a list\n" +
                 " 3 - Move to a new location\n" +
                 " 4 - Manage the crops\n" +
@@ -41,7 +41,7 @@ public class GameMenuView extends MenuView
                 viewMap();
                 break;
             case 2:
-                viewList();
+                displayListMenuView();
                 break;
             case 3:
                 moveToNewLocation();
@@ -50,7 +50,7 @@ public class GameMenuView extends MenuView
                 manageCrops();
                 break;
             case 5:
-                //displayMenuView();
+                displayMainMenuView();
                 break;
         }
     }
@@ -69,6 +69,16 @@ public class GameMenuView extends MenuView
     
     public void manageCrops() {
         System.out.println("\nManage crops option selected.");
+    }
+
+    private void displayMainMenuView() {
+        MainMenuView mmv = new MainMenuView();
+        mmv.displayMenu();
+    }
+
+    private void displayListMenuView() {
+      ListMenuView lmv = new ListMenuView();
+      lmv.displayMenu();
     }
     
 }

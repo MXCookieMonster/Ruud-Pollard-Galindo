@@ -16,7 +16,7 @@ public class CropControl {
     //Constants
     private static final int LAND_BASE = 17;
     private static final int LAND_RANGE = 10;
-    
+    private static final int PEOPLE_PER_ACRE = 10;
     //random number generator
     private static Random random = new Random();
     
@@ -29,8 +29,53 @@ public class CropControl {
         int landPrice = random.nextInt(LAND_RANGE) + LAND_BASE;
         return landPrice;
     }
-    
-    //The sellLand method
+    /**
+    *
+    * @author Joe G
+    */
+    //Credit: Bro DeBry MiniAaron
+    //buyLand method
+    //Purpose: Buy land - adds to acres owned
+    //Parameters: The game object and the number of acres to buy
+    //Pre-conditions: 0 < tobuy and wheatInStore. wheatInStore > buy * landPrice
+    //Returns: amount of wheatInStore after buying the land
+    public static int buyLand(CropData theCrops, int toBuy, int landCost)
+    {
+       // toBuy is not less than zero
+       // returns -1 if less than zero
+        if(toBuy <0)
+        return -1; 
+        
+       //land request cannot be more that wheatInStore
+       // less wheatInStore than amount requested, return -1
+       int wheat = theCrops.getWheatInStore();
+       if(wheat < toBuy * landCost)
+       return -1;
+       
+       //make sure enough people to tend the land
+       // one person per 10 acres
+       
+       int population = theCrops.getPopulation();
+       if(toBuy > population * PEOPLE_PER_ACRE)
+       
+    return -1; 
+       
+       // add the number of purchased acres to acresOwned
+       int acres = theCrops.getAcresOwned();
+
+        acres += toBuy;
+        // Set new value
+        theCrops.setAcresOwned(acres);
+     
+     //Purchase less whatInStore   
+     wheat -= (toBuy * landCost);
+
+     theCrops.setWheatInStore(wheat);  
+     
+     return acres;
+        
+    }
+//The sellLand method
     //Purpose: To sell land
     //Parameters: the price of land, the number of acres to sell
     // and a reference to a CropData object

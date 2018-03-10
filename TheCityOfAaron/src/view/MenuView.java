@@ -58,7 +58,8 @@ public abstract class MenuView implements ViewInterface {
         {
         System.out.format("\nError: input must be between 1 and %d", max);
         }
-        } while(inputValue < 1 || inputValue > max);
+        }
+        while(inputValue < 1 || inputValue > max);
         return inputValue;
         }
 }

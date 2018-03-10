@@ -102,14 +102,18 @@ public static void sellLandView() {
  */
     public static void plantCropView(){
     
-    //enter number acres user wants to plant
-     System.out.format("To plant crop it costs %d bushels per acre.%n");
-     System.out.print("\nHow many acres do you wish to plant? ");
-     //user input
+   
+    //enter number acres user wants to plant    
+    System.out.format("To plant crop it costs %d bushels per acre.%n");
+    System.out.print("\nHow many acres do you wish to plant? ");
+     
+    //user input
      int toPlant;
      toPlant = keyboard.nextInt();
      // call the PlantCrop method
      CropControl.plantCrop(toPlant, theCropData);
+     int wheat = theCropData.getWheatInStore();
+     System.out.format("The wheat in store after purchase is%d. %n",wheat);
     }
     // the runcCropsView method
 

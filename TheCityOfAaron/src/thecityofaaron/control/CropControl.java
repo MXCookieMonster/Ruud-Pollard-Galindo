@@ -193,7 +193,7 @@ public class CropControl {
                    
         //wheatInStore = wheatinStore - bushelsToPlant       
         wheat-= bushels;
-        
+        cropData.setWheatInStore(wheat);
         
         //return wheat after bushels spent
         return wheat;

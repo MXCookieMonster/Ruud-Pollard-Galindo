@@ -54,7 +54,7 @@ public abstract class MenuView implements ViewInterface {
         do {
         System.out.format("\nPlease enter an option(1 - %d):", max);
         inputValue = keyboard.nextInt();
-        if(inputValue < 1 || inputValue > max);
+        if(inputValue < 1 || inputValue > max)
         {
         System.out.format("\nError: input must be between 1 and %d", max);
         }

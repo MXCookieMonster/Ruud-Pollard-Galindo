@@ -202,6 +202,10 @@ public class CropControl {
         //return wheat after bushels spent
         return wheat;
     }     
+
+    static int setOffering(int offering) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }    
 
 

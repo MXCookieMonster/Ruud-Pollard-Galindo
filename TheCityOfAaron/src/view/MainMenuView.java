@@ -52,7 +52,7 @@ public class MainMenuView extends MenuView {
                 displaySaveGameView();
                 break;
             case 5:// if the option is 5, call display a goodbye message
-                System.out.println("Thanks for playing ... goodbye.");
+                exitGame();
                 break;
         }
     }
@@ -137,6 +137,10 @@ public class MainMenuView extends MenuView {
     private void displayGameMenuView() {
         GameMenuView gmv = new GameMenuView();
         gmv.displayMenu();
+    }
+
+    private void exitGame() {
+        System.out.println("Thanks for playing ... goodbye.");
     }
    
     

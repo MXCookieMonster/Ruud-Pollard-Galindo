@@ -69,6 +69,7 @@ public class GameMenuView extends MenuView
     
     public void manageCrops() {
         System.out.println("\nManage crops option selected.");
+       
     }
 
     private void displayMainMenuView() {

@@ -126,6 +126,8 @@ public static void sellLandView() {
         plantCropView();
         
         payOfferingsView();
+        
+        displayCropReport();
     }
 public static void displayCropReport()
 {

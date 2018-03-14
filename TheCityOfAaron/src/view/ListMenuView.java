@@ -44,8 +44,13 @@ public ListMenuView() {
                 System.out.println("The authors of the game are ... \n");
                 break;
             case 6://Back to main menu
-                System.out.println(menu);
+                displayMainMenuView();
                 break;
         }
+    }
+
+    private void displayMainMenuView() {
+        MainMenuView mmv = new MainMenuView();
+        mmv.displayMenu();
     }
 }

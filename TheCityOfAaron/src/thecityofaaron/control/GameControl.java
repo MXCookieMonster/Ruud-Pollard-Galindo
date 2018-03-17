@@ -72,6 +72,19 @@ public class GameControl {
         public static void createMap() {
             Map theMap = new Map(MAX_ROW, MAX_COL);
             
+            String river = "\nYou are on the River. The river is the source" +
+                    "\nof life for our city. The river marks the eastern " +
+                    "\nboundary of the city-it is the wilderness to the East.";
+            
+            Location loc = new Location();
+            
+            loc.setDescription(river);
+            loc.setSymbol("~~~");
+            
+            for(int i = 0; i < MAX_ROW; i++) {
+                theMap.setLocation(i, 4, loc);
+            }
+            
             theGame.setMap(theMap);
         }
     

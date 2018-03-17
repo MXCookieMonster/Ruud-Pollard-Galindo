@@ -110,9 +110,40 @@ public class GameControl {
             
             locWoodland.setDescription(woodland);
             locWoodland.setSymbol("TTT");
-            theMap.setLocation(0, 0, locWoodland);
-            theMap.setLocation(0, 1, locWoodland);
-            theMap.setLocation(1, 0, locWoodland);
+            theMap.setLocation(3, 0, locWoodland);
+            theMap.setLocation(2, 0, locWoodland);
+            theMap.setLocation(2, 1, locWoodland);
+            theMap.setLocation(1, 1, locWoodland);
+            
+            String mountain = "This is a mountain";
+            
+            Location locMountain = new Location();
+            
+            locMountain.setDescription(mountain);
+            locMountain.setSymbol("^^^");
+            theMap.setLocation(0, 0, locMountain);
+            theMap.setLocation(0, 1, locMountain);
+            theMap.setLocation(1, 0, locMountain);
+            
+            String desert = "This is a desert";
+            
+            Location locDesert = new Location();
+            
+            locDesert.setDescription(desert);
+            locDesert.setSymbol("___");
+            theMap.setLocation(4, 0, locDesert);
+            theMap.setLocation(3, 1, locDesert);
+            theMap.setLocation(4, 1, locDesert);
+            theMap.setLocation(0, 2, locDesert);
+            theMap.setLocation(1, 2, locDesert);
+            theMap.setLocation(2, 2, locDesert);
+            theMap.setLocation(3, 2, locDesert);
+            theMap.setLocation(4, 2, locDesert);
+            theMap.setLocation(0, 3, locDesert);
+            theMap.setLocation(1, 3, locDesert);
+            theMap.setLocation(2, 3, locDesert);
+            theMap.setLocation(3, 3, locDesert);
+            theMap.setLocation(4, 3, locDesert);
             
             theGame.setTheMap(theMap);
         }

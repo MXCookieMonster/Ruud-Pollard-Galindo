@@ -57,6 +57,12 @@ public class GameMenuView extends MenuView
     
     public void viewMap() {
         System.out.println("\nView map option selected.");
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print("[" + i + "]");
+            }
+            System.out.print("\n");
+        }
     }
     
     public void viewList() {

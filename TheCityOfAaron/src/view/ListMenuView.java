@@ -5,6 +5,12 @@
  */
 package view;
 import java.util.Scanner;
+import java.util.ArrayList;
+import thecityofaaron.MainClass;
+import thecityofaaron.model.Player;
+import thecityofaaron.model.Game;
+import thecityofaaron.model.ListItem;
+
 /**
  *
  * @author Joe G
@@ -13,7 +19,9 @@ public class ListMenuView extends MenuView {
  Scanner keyboard = new Scanner(System.in);
     
  private String menu;
- private int max;   
+ private int max;
+ 
+ private static Game theGame = MainClass.getTheGame();
 
 public ListMenuView() {
        super("\n" +
@@ -32,7 +40,7 @@ public ListMenuView() {
 @Override public void doAction(int option) {
         switch(option) {
             case 1: // if the option is 1, call startNewGame()
-                System.out.println("The animals in the Storehouse are..");
+                displayAnimalList();
                 break;
             case 2: // if the option is 2, call startExistingGame()
                 System.out.println("The tools in the storehouse are ... \n");
@@ -43,7 +51,7 @@ public ListMenuView() {
             case 4:// if the option is 4, call displaySavegame()
                 System.out.println("The authors of the game are ... \n");
                 break;
-            case 6://Back to main menu
+            case 5://Back to main menu
                 displayMainMenuView();
                 break;
         }
@@ -52,5 +60,11 @@ public ListMenuView() {
     private void displayMainMenuView() {
         MainMenuView mmv = new MainMenuView();
         mmv.displayMenu();
+    }
+    
+    private void displayAnimalList() {
+        for (ListItem animal : theGame.getAnimals()) {
+            System.out.println(animal.getName() + ": " + animal.getQuantity());
+        }
     }
 }

@@ -7,6 +7,7 @@
 package view;
 import java.util.Scanner;
 import thecityofaaron.MainClass;
+import thecityofaaron.control.GameControl;
 import thecityofaaron.model.CropData;
 import thecityofaaron.model.Player;
 import thecityofaaron.model.Game;
@@ -63,21 +64,7 @@ public class MainMenuView extends MenuView {
         
         // Create the CropData object, 
         // initialize it and save a reference to it in the Game
-        CropData theCrops = new CropData();
-        theCrops.setYear(0);
-        theCrops.setPopulation(100);
-        theCrops.setNewPeople(5);
-        theCrops.setCropYield(3);
-        theCrops.setNumberWhoDied(0);
-        theCrops.setOffering(10);
-        theCrops.setWheatInStore(2700);
-        theCrops.setAcresOwned(1000);
-        theCrops.setAcresPlanted(1000);
-        theCrops.setHarvest(3000);
-        theCrops.setOfferingBushels(300);
-        theCrops.setAcresPlanted(1000); 
         
-        theGame.setCropData(theCrops);
         
         
 // Save a reference to it in the GameProject class.
@@ -105,6 +92,7 @@ public class MainMenuView extends MenuView {
         String name;
         System.out.println("\nPlease type in your first name: ");
         name = keyboard.next();
+        
         
         // Save the user's name in the Player object.
         //thePlayer.setName(name);

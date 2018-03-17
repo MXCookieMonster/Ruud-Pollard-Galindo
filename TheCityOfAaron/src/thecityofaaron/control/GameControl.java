@@ -30,6 +30,11 @@ public class GameControl {
         thePlayer.setName(pName);
         theGame.setPlayer(thePlayer);
         
+        createCropDataObject();
+        createAnimalList();
+        createToolList();
+        createProvisionList();
+        createMap();
         
     }
 
@@ -66,7 +71,7 @@ public class GameControl {
         }
         
         // Create the list of tools
-        public static void createToolsList() {
+        public static void createToolList() {
             ArrayList<ListItem> tools = new ArrayList<>();
             tools.add(new ListItem("hammer",4));
             tools.add(new ListItem("shovel",6));
@@ -77,7 +82,7 @@ public class GameControl {
         }
        
         // Create the list of provisions
-        public static void createProvisionsList() {
+        public static void createProvisionList() {
             ArrayList<ListItem> provisions = new ArrayList<>(); 
             
             theGame.setProvisions(provisions);

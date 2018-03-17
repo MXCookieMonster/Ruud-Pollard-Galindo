@@ -88,7 +88,6 @@ public class GameControl {
             theGame.setProvisions(provisions);
         }
         
-        // Create the Locations and Map object
         public static void createMap() {
             Map theMap = new Map(MAX_ROW, MAX_COL);
             
@@ -96,14 +95,24 @@ public class GameControl {
                     "\nof life for our city. The river marks the eastern " +
                     "\nboundary of the city-it is the wilderness to the East.";
             
-            Location loc = new Location();
+            Location locRiver = new Location();
             
-            loc.setDescription(river);
-            loc.setSymbol("~~~");
+            locRiver.setDescription(river);
+            locRiver.setSymbol("~~~");
             
             for(int i = 0; i < MAX_ROW; i++) {
-                theMap.setLocation(i, 4, loc);
+                theMap.setLocation(i, 4, locRiver);
             }
+            
+            String woodland = "This is a woodland";
+            
+            Location locWoodland = new Location();
+            
+            locWoodland.setDescription(woodland);
+            locWoodland.setSymbol("TTT");
+            theMap.setLocation(0, 0, locWoodland);
+            theMap.setLocation(0, 1, locWoodland);
+            theMap.setLocation(1, 0, locWoodland);
             
             theGame.setTheMap(theMap);
         }

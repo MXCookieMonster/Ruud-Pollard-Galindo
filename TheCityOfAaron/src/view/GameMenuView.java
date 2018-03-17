@@ -21,6 +21,7 @@ public class GameMenuView extends MenuView
     
     private String menu;
     private int max;
+    private static Game theGame = MainClass.getTheGame();
     
     public GameMenuView() {
         super ("\n " +
@@ -56,13 +57,20 @@ public class GameMenuView extends MenuView
     }
     
     public void viewMap() {
+        
         System.out.println("\nView map option selected.");
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                System.out.print("[" + i + "]");
+                if (theGame.getTheMap().getLocation(i, j) == null) {
+                    System.out.print("[ ]");
+                } else {
+                    System.out.print(theGame.getTheMap().getLocation(i, j).getSymbol());
+                }
             }
             System.out.print("\n");
         }
+        
+        //System.out.print(theGame.getTheMap().getLocation(i, j).getSymbol())
     }
     
     public void viewList() {

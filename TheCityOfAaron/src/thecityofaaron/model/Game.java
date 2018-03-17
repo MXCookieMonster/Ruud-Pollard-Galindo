@@ -71,6 +71,48 @@ public class Game implements Serializable {
     {
         theCrops = _cropRef;
     }
+
+    public CropData getTheCrops() {
+        return theCrops;
+    }
+
+    public void setTheCrops(CropData theCrops) {
+        this.theCrops = theCrops;
+    }
+
+    public Map getTheMap() {
+        return theMap;
+    }
+
+    public void setTheMap(Map theMap) {
+        this.theMap = theMap;
+    }
+
+    public ArrayList<ListItem> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(ArrayList<ListItem> animals) {
+        this.animals = animals;
+    }
+
+    public ArrayList<ListItem> getTools() {
+        return tools;
+    }
+
+    public void setTools(ArrayList<ListItem> tools) {
+        this.tools = tools;
+    }
+
+    public ArrayList<ListItem> getProvisions() {
+        return provisions;
+    }
+
+    public void setProvisions(ArrayList<ListItem> provisions) {
+        this.provisions = provisions;
+    }
+    
+    
     //Hashcode
 
     @Override

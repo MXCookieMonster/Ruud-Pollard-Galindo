@@ -96,7 +96,7 @@ public class GameControl {
                 theMap.setLocation(i, 4, loc);
             }
             
-            theGame.setMap(theMap);
+            theGame.setTheMap(theMap);
         }
     
 }

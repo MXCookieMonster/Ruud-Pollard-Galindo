@@ -18,7 +18,7 @@ public class ListItem implements Serializable {
     
    
     //constructor method
-    public ListItem() {
+    public ListItem(String description, int amount) {
     }
     
     //Getters and Setters

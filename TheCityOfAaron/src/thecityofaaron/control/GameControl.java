@@ -68,7 +68,11 @@ public class GameControl {
         // Create the list of tools
         public static void createToolsList() {
             ArrayList<ListItem> tools = new ArrayList<>();
-            
+            tools.add(new ListItem("hammer",4));
+            tools.add(new ListItem("shovel",6));
+            tools.add(new ListItem("plow",2));
+            tools.add(new ListItem("grubber",3));
+            tools.add(new ListItem("hoe",5));
             theGame.setTools(tools);
         }
        

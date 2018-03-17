@@ -30,11 +30,14 @@ public class GameControl {
         thePlayer.setName(pName);
         theGame.setPlayer(thePlayer);
         
-        // Create the CropData object
+        
+    }
+
+    // Create the CropData object
         public static void createCropDataObject() {
             CropData theCrops = new CropData();
             
-            theCrops.setYears(0);
+            theCrops.setYear(0);
             theCrops.setPopulation(100);
             theCrops.setNewPeople(5);
             theCrops.setCropYield(3);
@@ -51,10 +54,25 @@ public class GameControl {
         }
         
         // Create the list of animals
+        public static void createAnimalList() {
+            ArrayList<ListItem> animals = new ArrayList<ListItem>();
+            
+            animals.add(new ListItem("cows", 12));
+            animals.add(new ListItem("horses", 3));
+            animals.add(new ListItem("pigs", 7));
+            animals.add(new ListItem("goats", 4));
+            
+            theGame.setAnimals(animals);
+        }
+        
         // Create the list of tools
         // Create the list of provisions
         
         // Create the Locations and Map object
-    }
-
+        public static void createMap() {
+            Map theMap = new Map(MAX_ROW, MAX_COL);
+            
+            theGame.setMap(theMap);
+        }
+    
 }

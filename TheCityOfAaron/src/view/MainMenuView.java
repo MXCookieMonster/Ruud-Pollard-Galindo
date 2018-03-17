@@ -99,7 +99,7 @@ public class MainMenuView extends MenuView {
                             "a danger of rats eating your wheat.");
         
         // Create a new Player object
-        Player thePlayer = new Player();
+        //Player thePlayer = new Player();
         
         // Prompt for and get the user's name.
         String name;
@@ -107,16 +107,19 @@ public class MainMenuView extends MenuView {
         name = keyboard.next();
         
         // Save the user's name in the Player object.
-        thePlayer.setName(name);
+        //thePlayer.setName(name);
 
         // Save a reference to the player object in the Game object.
-        theGame.setPlayer(thePlayer);
+        //theGame.setPlayer(thePlayer);
 
         // Display a welcome message.
         System.out.println("\nWelcome, " + name + ". Have fun.");
 
+        GameControl.createNewGame(name);
+        
         // Display the Game menu.
-        displayGameMenuView();
+        GameMenuView gmv = new GameMenuView();
+        gmv.displayMainMenuView();
         
     
     }

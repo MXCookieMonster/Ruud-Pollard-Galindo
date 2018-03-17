@@ -43,7 +43,7 @@ public ListMenuView() {
                 displayAnimalList();
                 break;
             case 2: // if the option is 2, call startExistingGame()
-                System.out.println("The tools in the storehouse are ... \n");
+                displayToolsList();
                 break;
             case 3: // if the option is 3, call displayHelpMenu()
                 System.out.println("The provisions in the storehouse are ... \n");
@@ -65,6 +65,12 @@ public ListMenuView() {
     private void displayAnimalList() {
         for (ListItem animal : theGame.getAnimals()) {
             System.out.println(animal.getName() + ": " + animal.getQuantity());
+        }
+    }
+
+    private void displayToolsList() {
+        for (ListItem tools : theGame.getTools()){
+            System.out.println(tools.getName() + ": " + tools.getQuantity());
         }
     }
 }

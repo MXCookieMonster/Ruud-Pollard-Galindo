@@ -19,7 +19,7 @@ public class ListItem implements Serializable {
    
     //constructor method
     public ListItem() {
-    }  
+    }
     
     //Getters and Setters
 

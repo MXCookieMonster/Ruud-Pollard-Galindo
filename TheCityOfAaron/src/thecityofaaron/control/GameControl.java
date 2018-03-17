@@ -55,7 +55,7 @@ public class GameControl {
         
         // Create the list of animals
         public static void createAnimalList() {
-            ArrayList<ListItem> animals = new ArrayList<ListItem>();
+            ArrayList<ListItem> animals = new ArrayList<>();
             
             animals.add(new ListItem("cows", 12));
             animals.add(new ListItem("horses", 3));

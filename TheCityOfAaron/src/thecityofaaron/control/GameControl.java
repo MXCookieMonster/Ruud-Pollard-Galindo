@@ -66,7 +66,18 @@ public class GameControl {
         }
         
         // Create the list of tools
+        public static void createToolsList() {
+            ArrayList<ListItem> tools = new ArrayList<>();
+            
+            theGame.setTools(tools);
+        }
+       
         // Create the list of provisions
+        public static void createProvisionsList() {
+            ArrayList<ListItem> provisions = new ArrayList<>(); 
+            
+            theGame.setProvisions(provisions);
+        }
         
         // Create the Locations and Map object
         public static void createMap() {

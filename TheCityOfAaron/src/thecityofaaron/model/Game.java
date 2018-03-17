@@ -7,6 +7,7 @@ package thecityofaaron.model;
 
 import thecityofaaron.model.Player;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,6 +20,10 @@ public class Game implements Serializable {
     private int noPeople;
     private Player player;
     private CropData theCrops = null;
+    private Map theMap;
+    private ArrayList<ListItem> animals;
+    private ArrayList<ListItem> tools;
+    private ArrayList<ListItem> provisions;
     //Constructor variable
     public Game() {
     }

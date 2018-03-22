@@ -7,6 +7,7 @@ package thecityofaaron.control;
 
 import thecityofaaron.model.CropData;
 import java.util.Random;
+import exceptions.CropException;
 /**
  *
  * @author Tyden R
@@ -39,18 +40,18 @@ public class CropControl {
     //Parameters: The game object and the number of acres to buy
     //Pre-conditions: 0 < tobuy and wheatInStore. wheatInStore > buy * landPrice
     //Returns: amount of wheatInStore after buying the land
-    public static int buyLand(CropData theCrops, int toBuy, int landCost)
+    public static void buyLand(CropData theCrops, int toBuy, int landCost) throws CropException
     {
        // toBuy is not less than zero
        // returns -1 if less than zero
         if(toBuy <0)
-        return -1; 
+        throw new CropException("A negative value was input"); 
         
        //land request cannot be more that wheatInStore
        // less wheatInStore than amount requested, return -1
        int wheat = theCrops.getWheatInStore();
        if(wheat < toBuy * landCost)
-       return -1;
+       throw new CropException("There is insufficent wheat to buy this much land");
        
        //make sure enough people to tend the land
        // one person per 10 acres
@@ -58,7 +59,7 @@ public class CropControl {
        int population = theCrops.getPopulation();
        if(toBuy > population * PEOPLE_PER_ACRE)
        
-    return -1; 
+       throw new CropException("Not enough people to tend that much land"); 
        
        // add the number of purchased acres to acresOwned
        int acres = theCrops.getAcresOwned();

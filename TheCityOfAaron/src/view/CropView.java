@@ -80,27 +80,30 @@ public static void sellLandView() {
         //Call sellLand method 
         CropControl.sellLand(toSell, price, theCropData);
     }
-    public static void feedPeopleView() {
+    public static void feedPeopleView(){
         
+        int toFeed;
+        boolean paramsNotOkay;
+        do
+        {
+         paramsNotOkay = false;
+         // Ask user "How many bushels...?"
+         System.out.println("\nHow many bushels of grain do you want to give to the people?");
+         toFeed = keyboard.nextInt();
         
-        // Ask user "How many bushels...?"
-        System.out.println("How many bushels of grain do you want to give to the people?\n");
+        try
+        {
+         CropControl.feedPeople(toFeed, theCropData);
+        }
+        catch (CropException f)
+        {
         
-        // User enters value
-        int wheatInStore = theCropData.getWheatInStore();
-        int bushelCount;
-        int remainingWheat;
-        do {
-            bushelCount = keyboard.nextInt();
-            remainingWheat = CropControl.feedPeople(wheatInStore, theCropData);
-            if (remainingWheat == -1) {
-                System.out.format("Please enter a positive integer less than %d", wheatInStore);
-            }
-        } while (remainingWheat == -1);
-        
-        System.out.format("There are %d bushels of wheat in store.", remainingWheat);
-        
-    }
+        System.out.println("I am sorry master, I cannot do this");
+        System.out.println(f.getMessage());
+        paramsNotOkay = true;
+        }        
+         }while(paramsNotOkay);
+        }    
  /**
  *
  * @author Joe G
@@ -121,11 +124,11 @@ public static void sellLandView() {
      {
          CropControl.plantCrop(toPlant, theCropData);
      }
-     catch(CropException e)
+     catch(CropException p)
      {
-     int wheat = theCropData.getWheatInStore();
+     
      System.out.println("I am sorry master, I cannot do this.");
-     System.out.println(e.getMessage());
+     System.out.println(p.getMessage());
      paramsNotOkay = true;
     }
      }while(paramsNotOkay);

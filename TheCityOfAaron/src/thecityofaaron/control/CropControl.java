@@ -132,7 +132,8 @@ public class CropControl {
         }
     }
     
-    public static int feedPeople(int wheatForPeople, CropData cropData){
+    public static void feedPeople(int wheatToFeed, CropData cropData)throws CropException
+    {
         //This method feeds the people
         //Purpose: To feed the people for the current year
         //Parameters: Current Population, wheat in store
@@ -141,24 +142,25 @@ public class CropControl {
         //than wheat in store. 
         
         //If wheatForPeople < 0, return -1
-        if (wheatForPeople < 0) {
-            return -1;
+        if (wheatToFeed < 0) {
+            throw new CropException("A negative value was input");
         }
         
         //If wheatForPeople > wheatInStore, return -1
-        if (wheatForPeople > cropData.wheatForPeople) {
-            return -1;
+         int wheat = cropData.getWheatInStore();
+        if (wheatToFeed > wheat) {
+            throw new CropException("There is not enough wheat to feed that many people");
         }
         
-        int wheatInStore = cropData.getWheatInStore();
         
-        cropData.setWheatForPeople(wheatInStore - wheatForPeople);
+        
+        wheat-= wheat-wheatToFeed;
+        cropData.setWheatForPeople(wheat);
         
         //Getting the number of people survived
-        cropData.population = wheatForPeople / 20;
+        cropData.population = wheatToFeed / 20;
         
-        //Returns the Population
-        return cropData.getWheatForPeople();
+       
     }
     
     /**

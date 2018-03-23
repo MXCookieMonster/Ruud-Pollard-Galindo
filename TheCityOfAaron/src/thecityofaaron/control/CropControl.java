@@ -73,8 +73,7 @@ public class CropControl {
 
      theCrops.setWheatInStore(wheat);  
      
-     return acres;
-        
+            
     }
 //The sellLand method
     //Purpose: To sell land
@@ -166,7 +165,7 @@ public class CropControl {
     *
     * @author Joe G
     */
-    public static int plantCrop(int acresToPlant, CropData cropData) {
+    public static void plantCrop(int acresToPlant, CropData cropData) throws CropException {
         
         //The plant the crop method
         //Purpose: Plant the crop for next year
@@ -182,11 +181,11 @@ public class CropControl {
         int bushels = acresToPlant /2;
         //If acresToPlant < 0, return -1
         if(acresToPlant < 0)
-            return -1;
+            throw new CropException("A negative value was input");
         //if acresOwned < acresToPlant, return -1
         int owned = cropData.getAcresOwned();
          if(owned < acresToPlant)
-            return -1;
+            throw new CropException("There is insuficient land to plant crops");
         
         //if  wheatInStore < bushelsToPlant, return -1
         //bushelsToPlant = acresToPlant / 2
@@ -194,14 +193,12 @@ public class CropControl {
         int wheat = cropData.getWheatInStore();
                 
         if(wheat < bushels)
-            return -1;
+            throw new CropException("There is insuficient wheat to plant crops");
                    
         //wheatInStore = wheatinStore - bushelsToPlant       
         wheat-= bushels;
         
         
-        //return wheat after bushels spent
-        return wheat;
     }     
 
     static int setOffering(int offering) {

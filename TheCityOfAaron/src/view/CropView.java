@@ -61,7 +61,7 @@ public static void buyLandView()
     } while(paramsNotOkay);
     
     // Call the buyLand( ) method in the control layer to buy the land
-    CropControl.buyLand(theCropData, toBuy,cost);
+   
 }
 
 public static void sellLandView() {
@@ -81,6 +81,7 @@ public static void sellLandView() {
         CropControl.sellLand(toSell, price, theCropData);
     }
     public static void feedPeopleView() {
+        
         
         // Ask user "How many bushels...?"
         System.out.println("How many bushels of grain do you want to give to the people?\n");
@@ -106,25 +107,32 @@ public static void sellLandView() {
  */
     public static void plantCropView(){
     
-   
-    //enter number acres user wants to plant    
-    
-    System.out.print("\nHow many acres do you wish to plant?");
-     
+    System.out.println("You can plant 2 acres with one bushel of wheat");
     //user input
-     int toPlant;
-     toPlant = keyboard.nextInt();
+     int toPlant;     
+     boolean paramsNotOkay;
+     do
+     {
+        paramsNotOkay = false;    
+        System.out.print("\nHow many acres do you wish to plant?");     
+        toPlant = keyboard.nextInt();
      // call the PlantCrop method
-     CropControl.plantCrop(toPlant, theCropData);
+     try
+     {
+         CropControl.plantCrop(toPlant, theCropData);
+     }
+     catch(CropException e)
+     {
      int wheat = theCropData.getWheatInStore();
-     System.out.format("The wheat in store after purchase is%d. %n",wheat);
+     System.out.println("I am sorry master, I cannot do this.");
+     System.out.println(e.getMessage());
+     paramsNotOkay = true;
     }
+     }while(paramsNotOkay);
+    }  
     // the runcCropsView method
-
     // Purpose: to run all of the cropview methods in order
-
     // Parameters: none
-
     // Returns: none
 
     public static void runCropViews()

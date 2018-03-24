@@ -82,7 +82,7 @@ public class CropControl {
     //Returns: the acres to sell must be positive
     //and <= acresOwned
     
-    public static int sellLand(int landPrice, int acresToSell, CropData cropData) {
+    public static void sellLand(int landPrice, int acresToSell, CropData cropData) throws CropException {
     
         //if acresToSell < 0, return -1
         //if acresToSell > acresOwned, return -1
@@ -93,7 +93,7 @@ public class CropControl {
         //if acresToSell > acresOwned, return -1
         int owned = cropData.getAcresOwned();
         if(acresToSell > owned) {
-            return -1;
+            throw new CropException("You cannot sell more land then you own");
         }
         
         //acresOwned = acresOwned - acresToSell
@@ -104,10 +104,6 @@ public class CropControl {
         int wheat = cropData.getWheatInStore();
         wheat -= (acresToSell * landPrice);
         cropData.setWheatInStore(wheat);
-        
-        //return acresOwned
-        return owned;
-        
     }
     
     public static int setOffering(int offering, CropData cropData) {

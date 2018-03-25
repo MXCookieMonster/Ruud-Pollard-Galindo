@@ -197,17 +197,22 @@ public static void displayCropReport()
 }
 
     public static void payOfferingsView() {
-        System.out.print("What percentage of your harvest do you want to pay in tithes and offerings.");
         
         int offerings;
+        boolean paramsNotOkay;
         
         do {
+            paramsNotOkay = false;
+            System.out.print("What percentage of your harvest do you want to pay in tithes and offerings.");
             offerings = keyboard.nextInt();
-            offerings = CropControl.setOffering(offerings, theCropData);
-            if (offerings == 1) {
-                System.out.print("Please enter an integer between 0 and 100");
+            try {
+                CropControl.setOffering(offerings, theCropData);
+            } catch(CropException e) {
+                System.out.println("Error.");
+                System.out.println(e.getMessage());
+                paramsNotOkay = true;
             }
-        } while(offerings == -1);
+        } while(paramsNotOkay);
         
         theCropData.setOffering(offerings);
        

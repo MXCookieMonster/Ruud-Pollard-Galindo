@@ -106,7 +106,7 @@ public class CropControl {
         cropData.setWheatInStore(wheat);
     }
     
-    public static int setOffering(int offering, CropData cropData) {
+    public static void setOffering(int offering, CropData cropData) throws CropException {
         // The setOffering method
         // Purpose: indicate what percentage of the harvest is to be paid as an offering
         // Parameters: percentage indicated by user input
@@ -114,17 +114,11 @@ public class CropControl {
         // Pre-conditions: the percentage must be greater than or equal to 0
         // and must be less than or equal to 100
         
-        //If offering < 0, return -1
         if (offering < 0) {
-            return -1;
+            throw new CropException("A negative value was input.");
         }
-        //If offering > 100, return -1
         else if (offering > 100) {
-            return -1;
-        }
-        //Return offering
-        else {
-            return offering;
+            throw new CropException("A value over 100 was input.");
         }
     }
     

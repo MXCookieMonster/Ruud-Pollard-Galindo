@@ -9,6 +9,12 @@ package thecityofaaron.control;
 import java.util.ArrayList;
 import thecityofaaron.MainClass;
 import thecityofaaron.model.*;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.ObjectInputStream;
 /**
  *
  * @author Tyden R
@@ -147,5 +153,27 @@ public class GameControl {
             
             theGame.setTheMap(theMap);
         }
-    
+
+    public static void getSavedGame(String filePath) {
+        
+        Game theGame = null;
+        try(FileInputStream fips = new FileInputStream(filePath))
+        {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            theGame=(Game) input.readObject();
+        }
+        catch(Exception e)
+        {
+        System.out.println("\nThere was an error reading the saved game file");
+        }    
+    }
+static String readFirstLineFromFile(String path) throws IOException
+{ 
+     try (BufferedReader br = new BufferedReader(new FileReader(path)))
+    { 
+         return br.readLine();
+      }
+}
+
+   
 }

@@ -9,12 +9,16 @@ import thecityofaaron.model.Player;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
+
 /**
  *
  * @author Tyden R
  */
 public class Game implements Serializable {
-   
+
+    
+    
     //Variables 
     private double totalTime;
     private int noPeople;
@@ -24,6 +28,13 @@ public class Game implements Serializable {
     private ArrayList<ListItem> animals;
     private ArrayList<ListItem> tools;
     private ArrayList<ListItem> provisions;
+    private boolean done = false;
+    
+
+
+
+
+
     //Constructor variable
     public Game() {
     }

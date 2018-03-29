@@ -167,13 +167,13 @@ public class GameControl {
         System.out.println("\nThere was an error reading the saved game file");
         }    
     }
-static String readFirstLineFromFile(String path) throws IOException
-{ 
-     try (BufferedReader br = new BufferedReader(new FileReader(path)))
+    static String readFirstLineFromFile(String path) throws IOException
     { 
+         try (BufferedReader br = new BufferedReader(new FileReader(path)))
+        { 
          return br.readLine();
       }
-}
+    }
 
    
 }

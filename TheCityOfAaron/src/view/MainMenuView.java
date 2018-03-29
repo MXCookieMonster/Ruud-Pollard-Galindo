@@ -115,16 +115,17 @@ public class MainMenuView extends MenuView {
     //Purpose: loads a saved game object from disk and start the game
     //Parameters: none
     //Returns: none
-    public void startSavedGame() 
-    {
+    public void startSavedGame() {
      String filePath;
      // prompt users and get a file path
-     System.out.println("\n\nEnter the file path where you want to load the game from.");
+     System.out.println("\n\nEnter the file path where you want to load the game from:");
      keyboard.nextLine();//this gets rid of the newline left by the getMenuOption()
      filePath = keyboard.nextLine();
-     //calls the getSavedGame() method in the GameControl class to load the game
+     
+    //calls the getSavedGame() method in the GameControl class to load the game
      GameControl.getSavedGame(filePath);
-     //display the game menu for the loaded game   
+     
+    //display the game menu for the loaded game   
      GameMenuView gmv = new GameMenuView();
      gmv.displayMenu();
         

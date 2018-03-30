@@ -169,9 +169,9 @@ public class GameControl {
         System.out.println("\nThere was an error reading the saved game file");
         }    
     }
-    public static void SaveGame(String filePath) {
+    public static void SaveGame(String outputLocation, Game theGame) {
         
-        try(FileOutputStream fops = new FileOutputStream(filePath))
+        try(FileOutputStream fops = new FileOutputStream(outputLocation))
         {
             ObjectOutputStream output = new ObjectOutputStream(fops);
             output.writeObject(theGame);

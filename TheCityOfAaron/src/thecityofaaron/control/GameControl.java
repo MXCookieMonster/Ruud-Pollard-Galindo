@@ -13,8 +13,10 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 /**
  *
  * @author Tyden R
@@ -165,6 +167,18 @@ public class GameControl {
         catch(Exception e)
         {
         System.out.println("\nThere was an error reading the saved game file");
+        }    
+    }
+    public static void SaveGame(String filePath) {
+        
+        try(FileOutputStream fops = new FileOutputStream(filePath))
+        {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            output.writeObject(theGame);
+        }
+        catch(Exception e)
+        {
+        System.out.println("\nThere was an error saving the game file");
         }    
     }
     static String readFirstLineFromFile(String path) throws IOException

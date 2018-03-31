@@ -100,21 +100,8 @@ public ListMenuView() {
     }
 
     private void printAnimalReport(){
-    
-   try (PrintWriter out = new PrintWriter("C:\\Users\\Josaf\\Documents\\Animal_Report.txt")){    
-    
-    out.println("\n\n      Animal List    ");
-    out.printf("%n%-20s%10s","Descprition","Quantity");
-    out.printf("%n%-20s%10s", "-----------","--------");
-    
-    for (ListItem animal : theGame.getAnimals()) {     
-    
-       out.printf("%n%-20s%10d", animal.getName()
-                                , animal.getQuantity());
-    }
-    } catch (Exception e){
-        System.out.println("Error the list cannot print");
-    }      
+   
+        ListItem.printAnimalList(animals, menu);
     }       
 
     

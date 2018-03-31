@@ -37,7 +37,7 @@ public ListMenuView() {
                 " 4 - List/View the authors of the game\n" +
                 " 5 - Print the animals in the storehouse\n" +
                 " 6 - Return to the main menu\n",
-              5);
+              6);
     }
 
  
@@ -82,14 +82,21 @@ public ListMenuView() {
     }
     }
 
-    private void printAnimalReport() {
-      String filePath;
-     // prompt users and get a file path
-     System.out.println("\n\nEnter the file path where you want to print the list to:");
-     keyboard.nextLine();//this gets rid of the newline left by the getMenuOption()
-     filePath = keyboard.nextLine();
-     
-    //calls the animal report to create in a location
-     GameControl.AnimalReport(animals, filePath);
+    private void printAnimalReport(){
+    
+   try (PrintWriter out = new PrintWriter("C:\\Users\\Josaf\\Documents\\Animal_Report.txt")){    
+    
+    out.println("\n\n      Animal List    ");
+    out.printf("%n%-20s%10s","Descprition","Quantity");
+    out.printf("%n%-20s%10s", "-----------","--------");
+    
+    for (ListItem animal : theGame.getAnimals()) {     
+    
+       out.printf("%n%-20s%10d", animal.getName()
+                                , animal.getQuantity());
+    }
+    } catch (Exception e){
+        System.out.println("Error the list cannot print");
+    }      
     }       
 }

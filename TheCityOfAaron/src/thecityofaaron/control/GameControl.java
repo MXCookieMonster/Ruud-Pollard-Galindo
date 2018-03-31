@@ -12,7 +12,6 @@ import thecityofaaron.model.*;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.ObjectInputStream;
@@ -28,6 +27,7 @@ public class GameControl {
     private static final int MAX_COL = 5;
     
     private static Game theGame;
+    
     
     public static void createNewGame(String pName) {
         // Create the game object. Save it in the main driver file
@@ -182,7 +182,7 @@ public class GameControl {
         System.out.println("\nThere was an error saving the game file");
         }    
     }
-    static String readFirstLineFromFile(String path) throws IOException
+    static String readFirstLineFromFile(String path) throws Exception
     { 
          try (BufferedReader br = new BufferedReader(new FileReader(path)))
         { 
@@ -190,22 +190,23 @@ public class GameControl {
       }
     
     }
-    public static void AnimalReport(ArrayList<ListItem> animals, String outputLocation)
-    {
-    try (PrintWriter out = new PrintWriter(outputLocation)){    
+   // public static void AnimalReport(ArrayList<ListItem> animals, String outputLocation)
+   // {
     
-    out.println("\n\n      Animal List    ");
-    out.printf("%n%-20s%10s%10s","Descprition","Quantity");
-    out.printf("%n-20s%10s%10s", "-----------","--------");
+   //try (PrintWriter out = new PrintWriter("C:/%username%/documents/Animal_report.txt")){    
     
-    for (ListItem item: animals ){
-        out.printf("%n%-20%7d%13.2f", item.getName()
-                                    , item.getQuantity());
-    }
-    } catch (Exception e){
-        System.out.println("Error the list cannot print");
-    }   
+    //out.println("\n\n      Animal List    ");
+    //out.printf("%n%-20s%10s","Descprition","Quantity");
+    //out.printf("%n%-20s%10s", "-----------","--------");
+    
+    //for (ListItem animal: thegame.getanimals{
+    //    out.printf("%n%-20s%10d", item.getName()
+    //                            , item.getQuantity());
+    //    }
+   // } catch (Exception e){
+    //    System.out.println("Error the list cannot print");
+   // }   
 
    
-    }
+    //}
 }

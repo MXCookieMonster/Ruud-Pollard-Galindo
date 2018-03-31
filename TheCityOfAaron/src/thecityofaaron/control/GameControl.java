@@ -17,6 +17,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 /**
  *
  * @author Tyden R
@@ -187,7 +188,24 @@ public class GameControl {
         { 
          return br.readLine();
       }
+    
     }
+    public static void AnimalReport(ArrayList<ListItem> animals, String outputLocation)
+    {
+    try (PrintWriter out = new PrintWriter(outputLocation)){    
+    
+    out.println("\n\n      Animal List    ");
+    out.printf("%n%-20s%10s%10s","Descprition","Quantity");
+    out.printf("%n-20s%10s%10s", "-----------","--------");
+    
+    for (ListItem item: animals ){
+        out.printf("%n%-20%7d%13.2f", item.getName()
+                                    , item.getQuantity());
+    }
+    } catch (Exception e){
+        System.out.println("Error the list cannot print");
+    }   
 
    
+    }
 }

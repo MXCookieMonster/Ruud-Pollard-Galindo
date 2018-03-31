@@ -26,6 +26,7 @@ public class ListMenuView extends MenuView {
  private static Game theGame = MainClass.getTheGame();
  private ArrayList<ListItem> animals;
  private ArrayList<ListItem> tools = theGame.getTools();
+ private ArrayList<ListItem> provision;
 
 public ListMenuView() {
        super("\n" +
@@ -38,7 +39,8 @@ public ListMenuView() {
                 " 4 - List/View the authors of the game\n" +
                 " 5 - Print the animals in the storehouse\n" +
                 " 6 - Print the tools list\n" +
-                " 7 - Return to the main menu\n",
+                " 7 - Print the provisions list\n" +
+                " 8 - Return to the main menu\n",
               7);
     }
 
@@ -52,7 +54,7 @@ public ListMenuView() {
                 displayToolsList();
                 break;
             case 3: // if the option is 3, call list of provision()
-                System.out.println("The provisions in the storehouse are ... \n");
+                displayProvisionList();
                 break;
             case 4:// if the option is 4, call displaySavegame()
                 System.out.println("The authors of the game are ... \n");
@@ -63,7 +65,10 @@ public ListMenuView() {
             case 6:
                 printToolList();
                 break;
-            case 7://Back to main menu
+            case 7:
+                printProvisionList();
+                break;
+            case 8://Back to main menu
                 displayMainMenuView();
                 break;
                 
@@ -86,6 +91,12 @@ public ListMenuView() {
             System.out.println(tools.getName() + ": " + tools.getQuantity());
     }
     }
+    
+    private void displayProvisionList() {
+        for (ListItem provisions : theGame.getProvisions()) {
+            System.out.println(provisions.getName() + ": " + provisions.getQuantity());
+        }
+    }
 
     private void printAnimalReport() {
       String filePath;
@@ -104,5 +115,13 @@ public ListMenuView() {
         keyboard.nextLine();
         filePath = keyboard.nextLine();
         GameControl.ToolsReport(tools, filePath);
+    }
+    
+    private void printProvisionList() {
+        String filePath;
+        System.out.println("\n\nEnter the file path where you want to print the list to:");
+        keyboard.nextLine();
+        filePath = keyboard.nextLine();
+        GameControl.ProvisionsReport(tools, filePath);
     }
 }

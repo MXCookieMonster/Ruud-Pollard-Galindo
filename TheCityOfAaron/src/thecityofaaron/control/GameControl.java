@@ -93,6 +93,9 @@ public class GameControl {
         // Create the list of provisions
         public static void createProvisionList() {
             ArrayList<ListItem> provisions = new ArrayList<>(); 
+            provisions.add(new ListItem("Bandages", 5));
+            provisions.add(new ListItem("Coat", 1));
+            provisions.add(new ListItem("Water Bottles", 10));
             
             theGame.setProvisions(provisions);
         }
@@ -220,6 +223,20 @@ public class GameControl {
             }
         } catch (Exception e) {
             System.out.println("Error in list printing");
+        }
+    }
+    
+    public static void ProvisionsReport(ArrayList<ListItem> provisions, String outputLocation) {
+        try (PrintWriter out = new PrintWriter(outputLocation)) {
+            out.println("\n\nProvisions List");
+            out.printf("%n%-20s%10s%10s","Description","Quantity");
+            out.printf("%n-20s%10s%10s", "-----------","----------");
+            
+            for (ListItem item: provisions ){
+                out.printf("%n%-20%7d%13.2f", item.getName(), item.getQuantity());    
+            }
+        } catch (Exception e) {
+            System.out.println("Error, the list cannot print");
         }
     }
 }

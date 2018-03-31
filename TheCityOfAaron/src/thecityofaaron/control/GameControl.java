@@ -208,4 +208,18 @@ public class GameControl {
 
    
     }
+    
+    public static void ToolsReport(ArrayList<ListItem> tools, String outputLocation) {
+        try (PrintWriter out = new PrintWriter(outputLocation)) {
+            out.println("\n\nTools List");
+            out.printf("%n%-20s%10s%10s","Descprition","Quantity");
+            out.printf("%n-20s%10s%10s", "-----------","--------");
+            
+            for (ListItem item: tools ){
+                out.printf("%n%-20%7d%13.2f", item.getName(), item.getQuantity());
+            }
+        } catch (Exception e) {
+            System.out.println("Error in list printing");
+        }
+    }
 }

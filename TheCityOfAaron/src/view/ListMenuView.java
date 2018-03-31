@@ -24,7 +24,8 @@ public class ListMenuView extends MenuView {
  private int max;
  
  private static Game theGame = MainClass.getTheGame();
-    private ArrayList<ListItem> animals;
+ private ArrayList<ListItem> animals;
+ private ArrayList<ListItem> tools = theGame.getTools();
 
 public ListMenuView() {
        super("\n" +
@@ -36,8 +37,9 @@ public ListMenuView() {
                 " 3 - List/View the provisions in the storehouse\n" +
                 " 4 - List/View the authors of the game\n" +
                 " 5 - Print the animals in the storehouse\n" +
-                " 6 - Return to the main menu\n",
-              5);
+                " 6 - Print the tools list\n" +
+                " 7 - Return to the main menu\n",
+              7);
     }
 
  
@@ -58,7 +60,10 @@ public ListMenuView() {
             case 5://Print the animal list
                 printAnimalReport();
                 break;
-            case 6://Back to main menu
+            case 6:
+                printToolList();
+                break;
+            case 7://Back to main menu
                 displayMainMenuView();
                 break;
                 
@@ -91,5 +96,13 @@ public ListMenuView() {
      
     //calls the animal report to create in a location
      GameControl.AnimalReport(animals, filePath);
-    }       
+    }
+    
+    private void printToolList() {
+        String filePath;
+        System.out.println("\n\nEnter the file path where you want to print the list to:");
+        keyboard.nextLine();
+        filePath = keyboard.nextLine();
+        GameControl.ToolsReport(tools, filePath);
+    }
 }

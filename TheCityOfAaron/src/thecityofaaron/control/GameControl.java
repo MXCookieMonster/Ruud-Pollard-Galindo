@@ -93,6 +93,9 @@ public class GameControl {
         // Create the list of provisions
         public static void createProvisionList() {
             ArrayList<ListItem> provisions = new ArrayList<>(); 
+            provisions.add(new ListItem("Bandages", 5));
+            provisions.add(new ListItem("Coat", 1));
+            provisions.add(new ListItem("Water Bottles", 10));
             
             theGame.setProvisions(provisions);
         }
@@ -190,23 +193,31 @@ public class GameControl {
       }
     
     }
-   // public static void AnimalReport(ArrayList<ListItem> animals, String outputLocation)
-   // {
+    public static void ToolsReport(ArrayList<ListItem> tools, String outputLocation) {
+        try (PrintWriter out = new PrintWriter(outputLocation)) {
+            out.println("\n\nTools List");
+            out.printf("%n%-20s%10s%10s","Descprition","Quantity");
+            out.printf("%n-20s%10s%10s", "-----------","--------");
+            
+            for (ListItem item: tools ){
+                out.printf("%n%-20%7d%13.2f", item.getName(), item.getQuantity());
+            }
+        } catch (Exception e) {
+            System.out.println("Error in list printing");
+        }
+    }
     
-   //try (PrintWriter out = new PrintWriter("C:/%username%/documents/Animal_report.txt")){    
-    
-    //out.println("\n\n      Animal List    ");
-    //out.printf("%n%-20s%10s","Descprition","Quantity");
-    //out.printf("%n%-20s%10s", "-----------","--------");
-    
-    //for (ListItem animal: thegame.getanimals{
-    //    out.printf("%n%-20s%10d", item.getName()
-    //                            , item.getQuantity());
-    //    }
-   // } catch (Exception e){
-    //    System.out.println("Error the list cannot print");
-   // }   
-
-   
-    //}
+    public static void ProvisionsReport(ArrayList<ListItem> provisions, String outputLocation) {
+        try (PrintWriter out = new PrintWriter(outputLocation)) {
+            out.println("\n\nProvisions List");
+            out.printf("%n%-20s%10s%10s","Description","Quantity");
+            out.printf("%n-20s%10s%10s", "-----------","----------");
+            
+            for (ListItem item: provisions ){
+                out.printf("%n%-20%7d%13.2f", item.getName(), item.getQuantity());    
+            }
+        } catch (Exception e) {
+            System.out.println("Error, the list cannot print");
+        }
+    }
 }

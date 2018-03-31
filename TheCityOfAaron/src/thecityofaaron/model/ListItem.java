@@ -65,6 +65,21 @@ public class ListItem implements Serializable {
         System.out.println("Error the list cannot print");
     }          
     }
+    
+    public static void printToolsList(ArrayList<ListItem> tools, String outputFileLocation) {
+        try (PrintWriter out = new PrintWriter("Tools_Report.txt")) {
+            out.println("\n\n Tools List");
+            out.printf("%n%-20s%10s","Descprition","Quantity");
+            out.printf("%n%-20s%10s", "-----------","--------");
+            
+            for (ListItem tool : theGame.getTools()) {
+                out.printf("%n%-20s%10d", tool.getName(), tool.getQuantity());
+                
+            }
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
+    }
     //toString statement 
 
     @Override

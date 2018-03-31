@@ -107,11 +107,7 @@ public ListMenuView() {
     
     
     private void printToolList() {
-        String filePath;
-        System.out.println("\n\nEnter the file path where you want to print the list to:");
-        keyboard.nextLine();
-        filePath = keyboard.nextLine();
-        GameControl.ToolsReport(tools, filePath);
+        ListItem.printToolsList(tools, menu);
     }
     
     private void printProvisionList() {

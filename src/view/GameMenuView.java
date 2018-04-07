@@ -9,6 +9,7 @@ import java.util.Scanner;
 import thecityofaaron.MainClass;
 import thecityofaaron.model.Player;
 import thecityofaaron.model.Game;
+import thecityofaaron.model.Location;
 
 /**
  *
@@ -85,7 +86,27 @@ public class GameMenuView extends MenuView
     }
     
     public void moveToNewLocation() {
-        System.out.println("\nMove to new location option selected.");
+        int xCoord;
+        int yCoord;
+        do {
+            System.out.print("\nEnter the x coordinate (0-4): ");
+            xCoord = keyboard.nextInt();
+            if (xCoord > 4 || xCoord < 0) {
+                System.out.print("\nThat number is not between 0 and 4.");
+            }
+        } while(xCoord > 4 || xCoord < 0);
+        do {
+            System.out.print("\nEnter the y coordinate: ");
+            yCoord = keyboard.nextInt();
+            if (yCoord > 4 || yCoord < 0) {
+                System.out.print("\nThat number is not between 0 and 4.");
+            }
+        } while (yCoord > 4 || yCoord < 0);
+        Location location = theGame.getTheMap().getLocation(xCoord, yCoord);
+        String locationDescription = theGame.getTheMap().getLocation(xCoord, yCoord).getDescription();
+        theGame.getTheMap().setLocation(xCoord, yCoord, location);
+        System.out.println(locationDescription);
+        
     }
     
     public void manageCrops() {

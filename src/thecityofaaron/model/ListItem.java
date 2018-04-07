@@ -65,6 +65,21 @@ public class ListItem implements Serializable {
             System.out.println("Error");
         }
     }
+    
+    public static void printAnimalsList(ArrayList<ListItem> tools, String outputFileLocation) {
+        try (PrintWriter out = new PrintWriter("Animals_Report.txt")) {
+            out.println("\n\n Tools List");
+            out.printf("%n%-20s%10s","Descprition","Quantity");
+            out.printf("%n%-20s%10s", "-----------","--------");
+            
+            for (ListItem animal : theGame.getAnimals()) {
+                out.printf("%n%-20s%10d", animal.getName(), animal.getQuantity());
+                
+            }
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
+    }
     //toString statement 
 
     @Override

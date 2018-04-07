@@ -60,6 +60,9 @@ public ListMenuView() {
             case 4:// if the option is 4, call displaySavegame()
                 System.out.println("The authors of the game are ... \n");
                 break;
+            case 5:
+                printAnimalsList();
+                break;
             case 6:
                 printToolList();
                 break;
@@ -96,6 +99,9 @@ public ListMenuView() {
         }
     }
     
+    private void printAnimalsList() {
+        ListItem.printAnimalsList(tools, menu);
+    }
     
     private void printToolList() {
         ListItem.printToolsList(tools, menu);

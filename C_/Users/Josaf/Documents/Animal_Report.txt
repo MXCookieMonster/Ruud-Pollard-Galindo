@@ -1,0 +1,10 @@
+
+
+      Animal List    
+
+Descprition           Quantity
+-----------           --------
+cows                        12
+horses                       3
+pigs                         7
+goats                        4

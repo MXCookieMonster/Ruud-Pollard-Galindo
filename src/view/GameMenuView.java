@@ -56,9 +56,10 @@ public class GameMenuView extends MenuView
         }
     }
     
-    public void viewMap() {
+   public void viewMap() {
         
-        System.out.println("\nView map option selected.");
+        System.out.println("\n***  MAP  ***");
+        System.out.println("   1     2     3     4     5");
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 if (theGame.getTheMap().getLocation(i, j) == null) {
@@ -69,6 +70,11 @@ public class GameMenuView extends MenuView
             }
             System.out.print("\n");
         }
+           System.out.println("\nKey:"
+                    + "\nMountains = ^^^"
+                    + "\nVillage = oOo"
+                    + "\nRiver = ~~~"
+                    + "\nWheat Fields = !!!");
         
         //System.out.print(theGame.getTheMap().getLocation(i, j).getSymbol())
     }

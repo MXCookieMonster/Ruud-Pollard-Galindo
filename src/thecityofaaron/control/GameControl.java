@@ -100,7 +100,7 @@ public class GameControl {
             theGame.setProvisions(provisions);
         }
         
-        public static void createMap() {
+      public static void createMap() {
             Map theMap = new Map(MAX_ROW, MAX_COL);
             
             String river = "\nYou are on the River. The river is the source" +
@@ -110,52 +110,55 @@ public class GameControl {
             Location locRiver = new Location();
             
             locRiver.setDescription(river);
-            locRiver.setSymbol("~~~");
+            locRiver.setSymbol("| ~~~ ");
+            theMap.setLocation(2, 0, locRiver);
+            theMap.setLocation(2, 1, locRiver);
+            theMap.setLocation(2, 2, locRiver);
+            theMap.setLocation(2, 3, locRiver);
+            theMap.setLocation(2, 4, locRiver);
             
-            for(int i = 0; i < MAX_ROW; i++) {
-                theMap.setLocation(i, 4, locRiver);
-            }
             
-            String woodland = "This is a woodland";
+            String woodland = "The village where the village people live.";
             
-            Location locWoodland = new Location();
+            Location locVillage = new Location();
             
-            locWoodland.setDescription(woodland);
-            locWoodland.setSymbol("TTT");
-            theMap.setLocation(3, 0, locWoodland);
-            theMap.setLocation(2, 0, locWoodland);
-            theMap.setLocation(2, 1, locWoodland);
-            theMap.setLocation(1, 1, locWoodland);
+            locVillage.setDescription(woodland);
+            locVillage.setSymbol("| oOo ");
+            theMap.setLocation(1, 0, locVillage);
+            theMap.setLocation(1, 1, locVillage);
+            theMap.setLocation(1, 2, locVillage);
+            theMap.setLocation(1, 3, locVillage);
+            theMap.setLocation(1, 4, locVillage);
             
-            String mountain = "This is a mountain";
+            String mountain = "These are the mountains where minerals are mined.";
             
             Location locMountain = new Location();
             
             locMountain.setDescription(mountain);
-            locMountain.setSymbol("^^^");
+            locMountain.setSymbol("| ^^^ ");
             theMap.setLocation(0, 0, locMountain);
             theMap.setLocation(0, 1, locMountain);
-            theMap.setLocation(1, 0, locMountain);
+            theMap.setLocation(0, 2, locMountain);
+            theMap.setLocation(0, 3, locMountain);
+            theMap.setLocation(0, 4, locMountain);
             
-            String desert = "This is a desert";
+            String desert = "Where the wheat is cultivated and harvested.";
             
             Location locDesert = new Location();
             
             locDesert.setDescription(desert);
-            locDesert.setSymbol("___");
-            theMap.setLocation(4, 0, locDesert);
+            locDesert.setSymbol("| !!! ");
+            theMap.setLocation(3, 0, locDesert);
             theMap.setLocation(3, 1, locDesert);
-            theMap.setLocation(4, 1, locDesert);
-            theMap.setLocation(0, 2, locDesert);
-            theMap.setLocation(1, 2, locDesert);
-            theMap.setLocation(2, 2, locDesert);
             theMap.setLocation(3, 2, locDesert);
-            theMap.setLocation(4, 2, locDesert);
-            theMap.setLocation(0, 3, locDesert);
-            theMap.setLocation(1, 3, locDesert);
-            theMap.setLocation(2, 3, locDesert);
             theMap.setLocation(3, 3, locDesert);
+            theMap.setLocation(3, 4, locDesert);
+            theMap.setLocation(4, 0, locDesert);
+            theMap.setLocation(4, 1, locDesert);
+            theMap.setLocation(4, 2, locDesert);
             theMap.setLocation(4, 3, locDesert);
+            theMap.setLocation(4, 4, locDesert);
+            
             
             theGame.setTheMap(theMap);
         }
